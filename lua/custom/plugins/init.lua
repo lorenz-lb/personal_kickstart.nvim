@@ -15,7 +15,7 @@ return {
         harpoon:setup()
         -- REQUIRED
         vim.keymap.set('n', '<leader>m', function()
-          harpoon:list():append()
+          harpoon:list():add()
         end, { desc = 'Harpoon Mark file' })
         vim.keymap.set('n', '<C-e>', function()
           harpoon.ui:toggle_quick_menu(harpoon:list())
@@ -52,6 +52,30 @@ return {
       config = function()
         vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Git Status' })
       end,
+    },
+    {
+      'stevearc/oil.nvim',
+      --@module 'oil'
+      --@type oil.SetupOpts
+      opts = {
+        default_file_explorer = false,
+        columns = {
+          'icon',
+          'sieze',
+          'mtime',
+        },
+        use_default_keymaps = false,
+        keymaps = {
+          ['<C-c>'] = { 'actions.close', mode = 'n' },
+          ['-'] = { 'actions.parent', mode = 'n' },
+          ['_'] = { 'actions.open_cwd', mode = 'n' },
+          ['<CR>'] = 'actions.select',
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      },
+      dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     },
   },
 }
