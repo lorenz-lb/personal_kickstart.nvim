@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>ee', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>ee', vim.cmd.Ex, { desc = 'Open Filetr[ee]' })
 
 -- enable bashrc in vim terminal
 -- vim.opt.shcf = vim.opt.shcf + ' -ic'
